@@ -3,20 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library App</title>
+    <title>BookShelf | Your Digital Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>My Library</h1>
-            <button id="newBookBtn" class="btn primary">+ Add New Book</button>
-        </header>
+    <!-- Header Section -->
+    <header class="site-header">
+        <h1>BookShelf</h1>
+        <a href="#" class="btn login-btn" target="_blank">Login</a>
+    </header>
 
-        <main id="bookGrid">
-            <!-- Books will be dynamically inserted here -->
-        </main>
-    </div>
+    <!-- Main Content Section -->
+    <main class="main-content">
+        <div class="container">
+            <div class="controls">
+                <button id="newBookBtn" class="btn primary">+ Add New Book</button>
+            </div>
+
+            <div id="bookGrid">
+                <!-- Books will be dynamically inserted here -->
+            </div>
+
+            <div id="emptyState" class="empty-state">
+                <p>Looks like there are no books added right now. Add new books by pressing the button above.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <p>Made with ❤ by <a href="https://github.com/bit2swaz" target="_blank">bit2swaz</a></p>
+    </footer>
 
     <!-- Modal for adding new books -->
     <div id="bookModal" class="modal">

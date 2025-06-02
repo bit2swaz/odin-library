@@ -19,13 +19,13 @@ Book.prototype.toggleRead = function() {
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
-    displayBooks(); // Re-render the books
+    displayBooks();
 }
 
 // Function to remove a book from the library
 function removeBook(bookId) {
     myLibrary = myLibrary.filter(book => book.id !== bookId);
-    displayBooks(); // Re-render the books
+    displayBooks();
 }
 
 // Function to create a book card element
@@ -57,12 +57,25 @@ function createBookCard(book) {
 // Function to display all books
 function displayBooks() {
     const bookGrid = document.getElementById('bookGrid');
-    bookGrid.innerHTML = ''; // Clear existing books
+    const emptyState = document.getElementById('emptyState');
+    
+    // Clear existing books
+    bookGrid.innerHTML = '';
 
-    myLibrary.forEach(book => {
-        const bookCard = createBookCard(book);
-        bookGrid.appendChild(bookCard);
-    });
+    // Show/hide empty state message
+    if (myLibrary.length === 0) {
+        emptyState.classList.add('visible');
+        bookGrid.style.display = 'none';
+    } else {
+        emptyState.classList.remove('visible');
+        bookGrid.style.display = 'grid';
+        
+        // Add all books to the grid
+        myLibrary.forEach(book => {
+            const bookCard = createBookCard(book);
+            bookGrid.appendChild(bookCard);
+        });
+    }
 }
 
 // Event handler for toggling read status
@@ -118,6 +131,5 @@ bookForm.addEventListener('submit', (e) => {
     hideModal();
 });
 
-// Add some sample books when the page loads (optional)
-addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, true);
-addBookToLibrary('1984', 'George Orwell', 328, false); 
+// Initialize the display
+displayBooks(); 
