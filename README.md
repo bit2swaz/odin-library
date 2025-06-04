@@ -23,6 +23,7 @@ A minimalist web application for managing your personal book collection. Built w
 ## Getting Started
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/bit2swaz/odin-library.git
    ```
@@ -76,4 +77,5 @@ This project is open source and available under the MIT License.
 [bit2swaz](https://github.com/bit2swaz)
 
 ---
-*Made with ❤️ by bit2swaz*
+
+_Made with ❤️ by bit2swaz_
